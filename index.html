@@ -3,16 +3,183 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Diploma Marksheet - Practice</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>ITI Certificate Viewer</title>
+  <style>
+    /* ================= Header ================= */
+    .header-top {
+      display: flex;
+      align-items: center;           /* Vertically center logo and text */
+      justify-content: center;       /* Horizontally center the whole line */
+      gap: 15px;                     /* Space between logo and text */
+      padding: 10px 0 20px;
+      background: #ffffff;
+      border-bottom: 3px solid #0a3a82;
+    }
+
+    .header-top .logo {
+      width: 100px;                  /* Logo width */
+      height: auto;
+      display: inline-block;
+    }
+
+    .header-top .site-title {
+      font-size: 26px;
+      font-weight: bold;
+      margin: 0;
+      color: #002b80;
+    }
+
+    .header-top h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 5px 0 0;
+      color: #003366;
+    }
+
+    /* ================= Navigation ================= */
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+      gap: 15px;
+    }
+
+    .main-nav ul li a {
+      text-decoration: none;
+      color: #001a4d;
+      font-weight: bold;
+      padding: 5px 10px;
+      transition: color 0.3s;
+    }
+
+    .main-nav ul li a:hover {
+      color: #0073e6;
+    }
+
+    /* ================= Body ================= */
+    body {
+      font-family: "Times New Roman", serif;
+      background-color: #ffffff;
+      color: #001a4d;
+      margin: 0;
+      padding: 0;
+      zoom: 1.3;  /* Desktop-like zoom effect */
+    }
+
+    /* ================= Container ================= */
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: linear-gradient(#f9fcff, #dbefff);
+      border: 3px solid #0a3a82;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    /* ================= Form Box ================= */
+    .form-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    .form-box input, .form-box select {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #888;
+      font-size: 16px;
+    }
+
+    #goBtn {
+      padding: 8px 20px;
+      font-size: 16px;
+      background: #0073e6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #goBtn.clicked {
+      background: #00cc44;  /* Green flash effect */
+    }
+
+    /* ================= Details Box ================= */
+    .details-box {
+      border: 2px solid #0a3a82;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .details-box.hide {
+      display: none;
+    }
+
+    .details-box table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .details-box th, .details-box td {
+      padding: 10px 12px;
+      text-align: left;
+      font-size: 17px;
+      font-weight: bold;              /* All details bold */
+      border-bottom: 2px solid #003366; /* Line under each field */
+      color: #001a4d;
+    }
+
+    .details-box th {
+      width: 35%;
+      color: #002b80;
+    }
+
+    /* ================= Close Button ================= */
+    .close-box {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    #closeBtn {
+      padding: 8px 24px;
+      font-size: 16px;
+      border-radius: 6px;
+      background: #0073e6;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #closeBtn:hover {
+      background: #005bb5;
+    }
+
+    /* ================= Footer ================= */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: linear-gradient(#b8e0ff, #6bbcff);
+      color: #001a4d;
+      font-weight: bold;
+      border-top: 3px solid #0a3a82;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
+  <!-- Header -->
   <header class="site-header">
     <div class="header-top">
-      <div class="emblem">
-        <!-- Put images/emblem.png in images/ if you have one -->
-        <img src="logo.png.JPG" alt="Ashoka Emblem" class="logo" />
-      </div>
+      <img src="logo.png.JPG" alt="Ashoka Emblem" class="logo" />
       <h1 class="site-title">Ministry of Skill Development And Entrepreneurship</h1>
     </div>
 
@@ -31,11 +198,11 @@
     </nav>
   </header>
 
+  <!-- Main Container -->
   <main class="container">
     <section class="box box-large">
       <h2 class="box-title">Enter e-Certificate Number</h2>
-
-      <div class="inner-box">
+      <div class="form-box">
         <label class="label-left">e-Certificate Number</label>
         <input id="certNo" class="cert-input" type="text" value="001709082" />
         <label class="label-right">Certificate Type</label>
@@ -49,30 +216,27 @@
     </section>
 
     <!-- Info box (initially hidden) -->
-    <section id="infoBox" class="box info-box" aria-hidden="true">
+    <section id="infoBox" class="box details-box hide" aria-hidden="true">
       <h2 class="box-title">Certified Trainee Information</h2>
-
-      <div class="info-table-wrap">
-        <table class="info-table">
-          <tbody>
-            <tr><th>Trainee Name</th><td id="tname">Abhishek Kumar</td></tr>
-            <tr><th>Father Name</th><td id="fname">Promod Kumar</td></tr>
-            <tr><th>Institute</th><td id="institute">PR0992200395 RAM NATH ITI NH-58 MEERUT ROAD GHAZIABAD UTTAR PRADESH</td></tr>
-            <tr><th>Institute Address</th><td id="iaddress">NH-58 MEERUT ROAD GHAZIABAD UTTAR PRADESH 201206</td></tr>
-            <tr><th>Trade</th><td id="trade">Electrician</td></tr>
-            <tr><th>Training Duration</th><td id="duration">Sep-2019 To jun-2021</td></tr>
-            <tr><th>Certified</th><td id="certified">Yes</td></tr>
-            <tr><th>Certificate Issue Date</th><td id="issued">03-OCT-2021</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="info-footer">
+      <table class="info-table">
+        <tbody>
+          <tr><th>Trainee Name</th><td id="tname">Abhishek Kumar</td></tr>
+          <tr><th>Father Name</th><td id="fname">Promod Kumar</td></tr>
+          <tr><th>Institute</th><td id="institute">PR0992200395 RAM NATH ITI NH-58 MEERUT ROAD GHAZIABAD UTTAR PRADESH</td></tr>
+          <tr><th>Institute Address</th><td id="iaddress">NH-58 MEERUT ROAD GHAZIABAD UTTAR PRADESH 201206</td></tr>
+          <tr><th>Trade</th><td id="trade">Electrician</td></tr>
+          <tr><th>Training Duration</th><td id="duration">Sep-2019 To Jun-2021</td></tr>
+          <tr><th>Certified</th><td id="certified">Yes</td></tr>
+          <tr><th>Certificate Issue Date</th><td id="issued">03-OCT-2021</td></tr>
+        </tbody>
+      </table>
+      <div class="close-box">
         <button id="closeBtn" class="btn-close">Close</button>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     © 2021 Ministry of Skill Development And Entrepreneurship, Government of India
   </footer>
@@ -84,21 +248,16 @@
     const infoBox = document.getElementById('infoBox');
     const certInput = document.getElementById('certNo');
 
-    // The certificate number that will show the record
     const VALID_CERT = '001709082';
 
     function showInfo() {
       const val = (certInput.value || '').trim();
-      if (!val) {
-        alert('Please enter certificate number.');
-        return;
-      }
+      if (!val) { alert('Please enter certificate number.'); return; }
       if (val === VALID_CERT) {
         infoBox.style.display = 'block';
         infoBox.setAttribute('aria-hidden', 'false');
         infoBox.scrollIntoView({ behavior: 'smooth' });
       } else {
-        // If you want it to always show regardless, remove this else block.
         alert('No record found for this certificate number.');
       }
     }
@@ -112,13 +271,9 @@
     goBtn.addEventListener('click', showInfo);
     closeBtn.addEventListener('click', closeInfo);
 
-    // Optional: Enter key triggers Go
     certInput.addEventListener('keydown', function(e){
       if (e.key === 'Enter') { e.preventDefault(); showInfo(); }
     });
-
-    // Hide info by default
-    infoBox.style.display = 'none';
   </script>
 </body>
 </html>
