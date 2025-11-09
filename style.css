@@ -1,31 +1,18 @@
-/* ================= Body ================= */
-* {
-  box-sizing: border-box;
-}
-body {
-  font-family: "Times New Roman", serif;
-  background-color: #ffffff;
-  color: #001a4d;
-  margin: 0;
-  padding: 0;
-  zoom: 1.3;
-}
-
 /* ================= Header ================= */
 .header-top {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  padding: 15px 20px;
+  align-items: center;           /* Vertically center logo and text */
+  justify-content: center;       /* Horizontally center the whole line */
+  gap: 15px;                     /* Space between logo and text */
+  padding: 10px 0 20px;
   background: #ffffff;
   border-bottom: 3px solid #0a3a82;
-  width: 100%;
 }
 
 .header-top .logo {
-  width: 100px;
+  width: 100px;                  /* Logo width */
   height: auto;
+  display: inline-block;
 }
 
 .header-top .site-title {
@@ -35,16 +22,21 @@ body {
   color: #002b80;
 }
 
+.header-top h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 5px 0 0;
+  color: #003366;
+}
+
 /* ================= Navigation ================= */
 .main-nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  padding: 10px 0;
+  padding: 0;
   margin: 0;
   gap: 15px;
-  background: #e6f0ff;
-  border-bottom: 2px solid #0a3a82;
 }
 
 .main-nav ul li a {
@@ -52,27 +44,51 @@ body {
   color: #001a4d;
   font-weight: bold;
   padding: 5px 10px;
+  transition: color 0.3s;
 }
 
 .main-nav ul li a:hover {
   color: #0073e6;
 }
 
-/* ================= Form Box ================= */
-.form-box {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  padding: 15px 20px;
-  border: 2px solid #0a3a82;
-  background: #ffffff;
+/* ================= Body ================= */
+body {
+  font-family: "Times New Roman", serif;
+  background-color: #ffffff;
+  color: #001a4d;
+  margin: 0;
+  padding: 0;
+  zoom: 1.3;  /* Desktop-like zoom effect */
+}
+
+/* ================= Container ================= */
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  background: linear-gradient(#f9fcff, #dbefff);
+  border: 3px solid #0a3a82;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* ================= Certificate Section ================= */
+.certificate-section h3 {
+  text-align: center;
+  font-size: 24px;
+  color: #0a3a82;
   margin-bottom: 20px;
 }
 
-/* Form Inputs */
+/* ================= Form Box ================= */
+.form-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
 .form-box input, .form-box select {
   padding: 8px 12px;
   border-radius: 6px;
@@ -84,40 +100,50 @@ body {
   padding: 8px 20px;
   font-size: 16px;
   background: #0073e6;
-  color: #fff;
+  color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  transition: background 0.3s;
+}
+
+#goBtn.clicked {
+  background: #00cc44;  /* Green flash effect */
 }
 
 /* ================= Details Box ================= */
 .details-box {
-  width: 100%;
-  padding: 20px;
   border: 2px solid #0a3a82;
   background: #ffffff;
-  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
 }
 
-.detail-line {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 10px 20px;
-  border-bottom: 2px solid #003366;
-  font-weight: bold;
+.details-box.hide {
+  display: none;
 }
 
-.detail-line .label {
-  min-width: 250px;
+.details-box table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.details-box th, .details-box td {
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 17px;
+  font-weight: bold;              /* All details bold */
+  border-bottom: 2px solid #003366; /* Line under each field */
+  color: #001a4d;
+}
+
+.details-box th {
+  width: 35%;
   color: #002b80;
 }
 
-.detail-line .value {
-  flex: 1;
-}
-
-/* Close button */
+/* ================= Close Button ================= */
 .close-box {
   text-align: center;
   margin-top: 15px;
@@ -131,6 +157,11 @@ body {
   color: #fff;
   border: none;
   cursor: pointer;
+  transition: background 0.3s;
+}
+
+#closeBtn:hover {
+  background: #005bb5;
 }
 
 /* ================= Footer ================= */
