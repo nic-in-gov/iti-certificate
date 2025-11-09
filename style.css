@@ -1,16 +1,28 @@
+/* ================= Body ================= */
+body {
+  font-family: "Times New Roman", serif;
+  background-color: #ffffff;
+  color: #001a4d;
+  margin: 0;
+  padding: 0;
+  zoom: 1.3;  /* Desktop-like zoom effect */
+}
+
 /* ================= Header ================= */
 .header-top {
   display: flex;
   align-items: center;           /* Vertically center logo and text */
   justify-content: center;       /* Horizontally center the whole line */
-  gap: 15px;                     /* Space between logo and text */
-  padding: 10px 0 20px;
+  gap: 15px;
+  padding: 15px 20px;
   background: #ffffff;
   border-bottom: 3px solid #0a3a82;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .header-top .logo {
-  width: 100px;                  /* Logo width */
+  width: 100px;
   height: auto;
   display: inline-block;
 }
@@ -22,21 +34,16 @@
   color: #002b80;
 }
 
-.header-top h2 {
-  font-size: 20px;
-  font-weight: 600;
-  margin: 5px 0 0;
-  color: #003366;
-}
-
 /* ================= Navigation ================= */
 .main-nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  padding: 0;
+  padding: 10px 0;
   margin: 0;
   gap: 15px;
+  background: #e6f0ff;
+  border-bottom: 2px solid #0a3a82;
 }
 
 .main-nav ul li a {
@@ -51,32 +58,12 @@
   color: #0073e6;
 }
 
-/* ================= Body ================= */
-body {
-  font-family: "Times New Roman", serif;
-  background-color: #ffffff;
-  color: #001a4d;
-  margin: 0;
-  padding: 0;
-  zoom: 1.3;  /* Desktop-like zoom effect */
-}
-
 /* ================= Container ================= */
 .container {
-  max-width: 900px;
+  max-width: 100%; /* Full width */
   margin: 30px auto;
-  background: linear-gradient(#f9fcff, #dbefff);
-  border: 3px solid #0a3a82;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-/* ================= Certificate Section ================= */
-.certificate-section h3 {
-  text-align: center;
-  font-size: 24px;
-  color: #0a3a82;
-  margin-bottom: 20px;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 /* ================= Form Box ================= */
@@ -108,39 +95,38 @@ body {
 }
 
 #goBtn.clicked {
-  background: #00cc44;  /* Green flash effect */
+  background: #00cc44;
 }
 
 /* ================= Details Box ================= */
 .details-box {
-  border: 2px solid #0a3a82;
-  background: #ffffff;
+  width: 100%;               /* Full page width */
   padding: 20px;
-  border-radius: 10px;
-  margin-top: 20px;
+  background: #ffffff;
+  border: 2px solid #0a3a82;
+  box-sizing: border-box;
+  border-radius: 0;
+  margin-bottom: 30px;
 }
 
-.details-box.hide {
-  display: none;
-}
-
-.details-box table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.details-box th, .details-box td {
-  padding: 10px 12px;
-  text-align: left;
-  font-size: 17px;
-  font-weight: bold;              /* All details bold */
-  border-bottom: 2px solid #003366; /* Line under each field */
+.detail-line {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 2px solid #003366;
+  font-weight: bold;
   color: #001a4d;
+  flex-wrap: wrap; /* For smaller screens */
 }
 
-.details-box th {
-  width: 35%;
+.detail-line .label {
+  min-width: 220px;
   color: #002b80;
+}
+
+.detail-line .value {
+  flex: 1;
 }
 
 /* ================= Close Button ================= */
