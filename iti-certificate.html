@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Diploma Marksheet</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <img src="images/india-logo.png" alt="Ashoka Emblem" class="logo" />
+    <h1>Ministry of Skill Development And Entrepreneurship</h1>
+    <h2>Government of India</h2>
+  </header>
+
+  <main class="container">
+    <section class="certificate-section">
+      <h3>Enter e-Certificate Number</h3>
+      <div class="form-box">
+        <label>e-Certificate Number:</label>
+        <input type="text" id="certNo" value="001709082">
+        <label>Certificate Type:</label>
+        <select>
+          <option>--select--</option>
+          <option>NCVT</option>
+          <option>SCVT</option>
+        </select>
+        <button id="goBtn">Go</button>
+      </div>
+
+      <div class="details-box">
+        <table>
+          <tr><th>Trainee Name</th><td>Abhishek Kumar</td></tr>
+          <tr><th>Father Name</th><td>Promod Kumar</td></tr>
+          <tr><th>Institute</th><td>PR0992200395 RAM NATH ITI NH-58 MEERUT ROAD GHAZIABAD UTTAR PRADESH</td></tr>
+          <tr><th>Institute Address</th><td>NH-58 MEERUT ROAD GHAZIABAD UTTAR PRADESH 201206</td></tr>
+          <tr><th>Trade</th><td>Electrician</td></tr>
+          <tr><th>Training Duration</th><td>Sep-2019 To Jun-2021</td></tr>
+          <tr><th>Certified</th><td>Yes</td></tr>
+          <tr><th>Certificate Issue Date</th><td>03-OCT-2021</td></tr>
+          <tr><th>Certificate Number</th><td>001709082</td></tr>
+        </table>
+      </div>
+
+      <div class="close-box">
+        <button id="closeBtn">Close</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2015 Ministry of Skill Development And Entrepreneurship, Government of India
+  </footer>
+
+  <script>
+    // Button color effect only
+    const goBtn = document.getElementById('goBtn');
+    goBtn.addEventListener('click', () => {
+      goBtn.classList.add('clicked');
+      setTimeout(() => goBtn.classList.remove('clicked'), 300);
+    });
+
+    // Close button just hides details box temporarily
+    const closeBtn = document.getElementById('closeBtn');
+    const detailsBox = document.querySelector('.details-box');
+    closeBtn.addEventListener('click', () => {
+      detailsBox.classList.toggle('hide');
+    });
+  </script>
+</body>
+</html>
