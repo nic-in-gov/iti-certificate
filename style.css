@@ -97,15 +97,17 @@ body {
   border: 2px solid #0a3a82;
   background: #ffffff;
   margin-bottom: 30px;
+  box-sizing: border-box;
 }
 
+/* Each line styled like a table row */
 .detail-line {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   padding: 10px 20px;
-  border-bottom: 2px solid #003366;
-  font-weight: bold;
+  border-bottom: 2px solid #003366; /* 👈 line under each detail */
+  font-weight: bold; /* 👈 bold text */
 }
 
 .detail-line .label {
@@ -115,8 +117,8 @@ body {
 
 .detail-line .value {
   flex: 1;
+  color: #001a4d;
 }
-
 /* Close button */
 .close-box {
   text-align: center;
