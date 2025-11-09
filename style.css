@@ -80,34 +80,36 @@ body {
   transition: background 0.3s;
 }
 #goBtn.clicked {
-  background: #00cc44; /* Green flash effect */
-}
-
-/* Details Box */
+  background: #00cc44; /* Green flash /* Details Box */
 .details-box {
   border: 2px solid #0a3a82;
   background: #ffffff;
   padding: 20px;
   border-radius: 10px;
 }
+
 .details-box.hide {
   display: none;
 }
+
 .details-box table {
   width: 100%;
   border-collapse: collapse;
 }
+
 .details-box th, .details-box td {
-  padding: 10px;
-  border-bottom: 1px solid #cce0ff;
+  padding: 10px 12px;
   text-align: left;
-}
-.details-box th {
-  width: 35%;
-  font-weight: bold;
-  color: #0a3a82;
+  font-size: 17px;
+  font-weight: bold; /* 👈 sab details bold */
+  border-bottom: 2px solid #003366; /* 👈 line har field ke niche */
+  color: #001a4d;
 }
 
+.details-box th {
+  width: 35%;
+  color: #002b80;
+}
 /* Close button */
 .close-box {
   text-align: center;
