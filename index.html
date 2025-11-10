@@ -3,96 +3,83 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ITI Certificate Viewer</title>
+  <title>Diploma Marksheet - Verification</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
-    <div class="header-top">
-      <img src="logo.png.JPG" alt="Ashoka Emblem" class="logo" />
-      <h1 class="site-title">Ministry of Skill Development And Entrepreneurship</h1>
-    </div>
 
-    <nav class="main-nav">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">ITI</a></li>
-        <li><a href="#">Trainee</a></li>
-        <li><a href="#">Verification</a></li>
-        <li><a href="#">Instructor</a></li>
-        <li><a href="#">Examiner</a></li>
-        <li><a href="#">Calendar</a></li>
-        <li><a href="#">CFI</a></li>
-        <li><a href="#">Help</a></li>
-      </ul>
-    </nav>
+  <!-- Header -->
+  <header class="header">
+    <img src="logo.png.JPG" alt="Ashoka Emblem" class="logo" />
+    <h1>Ministry of Skill Development And Entrepreneurship</h1>
   </header>
 
-  <!-- Go Form Full Width -->
+  <!-- Certificate Input Box -->
   <section class="form-box">
-    <label class="label-left">e-Certificate Number</label>
-    <input id="certNo" class="cert-input" type="text" value="001709082" />
-    <label class="label-right">Certificate Type</label>
-    <select id="certType" class="cert-select">
+    <label for="certNo">e-Certificate Number:</label>
+    <input id="certNo" type="text" placeholder="Enter Certificate No." value="001709082" />
+    
+    <label for="certType">Certificate Type:</label>
+    <select id="certType">
       <option>--select--</option>
       <option>NCVT</option>
       <option>SCVT</option>
     </select>
-    <button id="goBtn" class="btn-go">Go</button>
+
+    <button id="goBtn">Go</button>
   </section>
 
-  <!-- Details Box Full Width -->
-  <section id="infoBox" class="details-box hide" aria-hidden="true">
-    <div class="detail-line"><span class="label">Trainee Name:</span> <span class="value">Abhishek Kumar</span></div>
-    <div class="detail-line"><span class="label">Father Name:</span> <span class="value">Promod Kumar</span></div>
-    <div class="detail-line"><span class="label">Institute:</span> <span class="value">RAM NATH ITI NH-58 MEERUT ROAD GHAZIABAD UTTAR PRADESH</span></div>
-    <div class="detail-line"><span class="label">Trade:</span> <span class="value">Electrician</span></div>
-    <div class="detail-line"><span class="label">Training Duration:</span> <span class="value">Sep-2019 To Jun-2021</span></div>
-    <div class="detail-line"><span class="label">Certified:</span> <span class="value">Yes</span></div>
-    <div class="detail-line"><span class="label">Certificate Issue Date:</span> <span class="value">03-OCT-2021</span></div>
+  <!-- Details Table (Hidden initially) -->
+  <section id="detailsBox" class="details-box">
+    <h2>Certified Trainee Information</h2>
+    <table class="details-table">
+      <tbody>
+        <tr><th>Trainee Name</th><td>Abhishek Kumar</td></tr>
+        <tr><th>Father Name</th><td>Promod Kumar</td></tr>
+        <tr><th>Institute</th><td>PR0992200395 RAM NATH ITI NH-58 MEERUT ROAD GHAZIABAD UTTAR PRADESH</td></tr>
+        <tr><th>Institute Address</th><td>NH-58 MEERUT ROAD GHAZIABAD UTTAR PRADESH 201206</td></tr>
+        <tr><th>Trade</th><td>Electrician</td></tr>
+        <tr><th>Training Duration</th><td>Sep-2019 To Jun-2021</td></tr>
+        <tr><th>Certified</th><td>Yes</td></tr>
+        <tr><th>Certificate Issue Date</th><td>03-OCT-2021</td></tr>
+      </tbody>
+    </table>
 
     <div class="close-box">
-      <button id="closeBtn" class="btn-close">Close</button>
+      <button id="closeBtn">Close</button>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="site-footer">
+  <footer>
     © 2021 Ministry of Skill Development And Entrepreneurship, Government of India
   </footer>
 
+  <!-- Script -->
   <script>
-    const goBtn = document.getElementById('goBtn');
-    const closeBtn = document.getElementById('closeBtn');
-    const infoBox = document.getElementById('infoBox');
-    const certInput = document.getElementById('certNo');
-    const VALID_CERT = '001709082';
+    const goBtn = document.getElementById("goBtn");
+    const closeBtn = document.getElementById("closeBtn");
+    const detailsBox = document.getElementById("detailsBox");
+    const certNo = document.getElementById("certNo");
 
-    function showInfo() {
-      const val = (certInput.value || '').trim();
-      if (!val) { alert('Please enter certificate number.'); return; }
-      if (val === VALID_CERT) {
-        infoBox.style.display = 'block';
-        infoBox.setAttribute('aria-hidden', 'false');
-        infoBox.scrollIntoView({ behavior: 'smooth' });
+    const VALID = "001709082";
+
+    detailsBox.style.display = "none";
+
+    goBtn.addEventListener("click", () => {
+      if (certNo.value.trim() === VALID) {
+        detailsBox.style.display = "block";
+        detailsBox.scrollIntoView({ behavior: "smooth" });
       } else {
-        alert('No record found for this certificate number.');
+        alert("No record found for this certificate number.");
       }
-    }
+    });
 
-    function closeInfo() {
-      infoBox.style.display = 'none';
-      infoBox.setAttribute('aria-hidden', 'true');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    goBtn.addEventListener('click', showInfo);
-    closeBtn.addEventListener('click', closeInfo);
-
-    certInput.addEventListener('keydown', function(e){
-      if (e.key === 'Enter') { e.preventDefault(); showInfo(); }
+    closeBtn.addEventListener("click", () => {
+      detailsBox.style.display = "none";
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   </script>
+
 </body>
 </html>
